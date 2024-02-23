@@ -3,7 +3,21 @@ package hex2ip;
 public class Hex2IP {
     
     public void convertIpToHex(String ip) {
+        String[] separatedIp = ip.split("\\.");
+        String[] hexDec = new String[4];
         
+        for (int i = 0; i < separatedIp.length; i++) {
+            int decimal = Integer.parseInt(separatedIp[i]);
+            String hexadecimal = Integer.toHexString(decimal).toUpperCase();
+            
+            if (hexadecimal.length() == 1) {
+                hexadecimal = "0" + hexadecimal;
+            }
+            
+            hexDec[i] = hexadecimal;
+        }
+        String hexCode = String.join("", hexDec);
+        System.out.println("La IP: " + ip + " a Hexadecimal es: " + hexCode);
     }
     
     public void convertHexToIp(String hex) {
