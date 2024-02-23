@@ -6,6 +6,11 @@ public class Hex2IP {
         String[] separatedIp = ip.split("\\.");
         String[] hexDec = new String[4];
         
+        if (separatedIp.length > 4 || separatedIp.length < 4) {
+            System.out.println("Formato de IP invalida");
+            return;
+        }
+        
         for (int i = 0; i < separatedIp.length; i++) {
             int decimal = Integer.parseInt(separatedIp[i]);
             String hexadecimal = Integer.toHexString(decimal).toUpperCase();
